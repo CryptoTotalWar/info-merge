@@ -10,10 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Todo {
-  id        String   @id @default(uuid())
-  title     String
-  complete  Boolean
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Headline {
+  id              String   @id @default(uuid())
+  headlineContent String
+  hyperlink       String
+  categoryTag     String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  isBreakingNews  Boolean  @default(false)
+  expiration      DateTime @default(dbgenerated()) // Placeholder, see point 3 for details
+
+  @@index([categoryTag, createdAt]) // Composite index for efficient querying within categories
 }
+
