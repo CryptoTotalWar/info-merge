@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Todo app",
+  title: "Info Merge",
 };
 
 export default function RootLayout({
