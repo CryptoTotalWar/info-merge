@@ -1,4 +1,6 @@
+"use client";
 // src/components/CategoryContainer.tsx
+
 import React from "react";
 import { HeadlineItem } from "./HeadlineItem";
 import { HeadlineType } from "@/types"; // Ensure the path matches your project structure

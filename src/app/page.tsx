@@ -1,4 +1,5 @@
-// src/app/page.tsx
+"use client";
+import { useEffect, useState } from "react"; // src/app/page.tsx
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types"; // Ensure this path is correct
 
@@ -6,16 +7,24 @@ type PageProps = {
   data: HeadlinesByCategoryType;
 };
 
-export async function loader() {
-  const res = await fetch("/api/headlines"); // Relative URL for the API endpoint
-  if (!res.ok) {
-    throw new Error("Failed to fetch headlines");
-  }
-  return res.json();
-}
+export default function Page() {
+  const [data, setData] = useState({} as HeadlinesByCategoryType);
 
-export default function Page({ data }: PageProps) {
-  const headlinesByCategory: HeadlinesByCategoryType = data;
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("/api/headlines");
+      const data = await response.json();
+      setData(data);
+    }
+    fetchData();
+  }, []);
+
+  console.log("Received data:", data);
+
+  if (!data || Object.keys(data).length === 0) {
+    // Handle the case when data is undefined or empty
+    return <div>No headlines available.</div>; // Display a message to the user
+  }
 
   return (
     <>
@@ -23,7 +32,7 @@ export default function Page({ data }: PageProps) {
         <h1 className="text-2xl">Headlines</h1>
       </header>
       <main>
-        {Object.entries(headlinesByCategory).map(([categoryTag, headlines]) => (
+        {Object.entries(data).map(([categoryTag, headlines]) => (
           <CategoryContainer
             key={categoryTag}
             categoryTag={categoryTag}

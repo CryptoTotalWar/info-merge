@@ -1,4 +1,6 @@
+"use client";
 // src/components/HeadlineItem.tsx
+
 import React from "react";
 import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
 

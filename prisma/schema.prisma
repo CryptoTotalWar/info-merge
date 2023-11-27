@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL") // Make sure this points to your MySQL database
 }
 
 model Headline {
@@ -18,8 +18,7 @@ model Headline {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   isBreakingNews  Boolean  @default(false)
-  expiration      DateTime @default(dbgenerated()) // Placeholder, see point 3 for details
+  expiration      DateTime? // Made optional
 
   @@index([categoryTag, createdAt]) // Composite index for efficient querying within categories
 }
-
