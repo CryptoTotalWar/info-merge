@@ -1,39 +1,52 @@
-import Link from "next/link";
+// import Link from "next/link";
+// src/app/page.tsx
+import { GetServerSideProps } from "next";
 import { prisma } from "@/db";
-import { TodoItem } from "@/components/TodoItem";
+import { CategoryContainer } from "@/components/CategoryContainer";
+import { HeadlinesByCategoryType } from "@/types"; // Now importing from the types directory
 
-function getTodos() {
-  return prisma.todo.findMany();
-}
+type PageProps = {
+  headlinesByCategory: HeadlinesByCategoryType;
+};
 
-async function toggleTodo(id: string, complete: boolean) {
-  "use server";
+export const getServerSideProps: GetServerSideProps = async () => {
+  const headlines = await prisma.headline.findMany({
+    orderBy: {
+      categoryTag: "asc",
+      createdAt: "desc",
+    },
+  });
 
-  console.log(id, complete);
-  await prisma.todo.update({ where: { id }, data: { complete } });
-}
+  // Group headlines by category
+  const headlinesByCategory = headlines.reduce(
+    (acc: HeadlinesByCategoryType, headline) => {
+      acc[headline.categoryTag] = acc[headline.categoryTag] || [];
+      acc[headline.categoryTag].push(headline);
+      return acc;
+    },
+    {}
+  );
 
-export default async function Home() {
-  const todos = await getTodos();
-  // await prisma.todo.create({ data: { title: "test", complete: false } });
-  // we created the above once and then commented it out
+  return {
+    props: { headlinesByCategory },
+  };
+};
 
+export default function Page({ headlinesByCategory }: PageProps) {
   return (
     <>
       <header className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl">Todos</h1>
-        <Link
-          className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
-          href="/new"
-        >
-          New
-        </Link>
+        <h1 className="text-2xl">Headlines</h1>
       </header>
-      <ul className="pl-4">
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
+      <main>
+        {Object.entries(headlinesByCategory).map(([categoryTag, headlines]) => (
+          <CategoryContainer
+            key={categoryTag}
+            categoryTag={categoryTag}
+            headlines={headlines}
+          />
         ))}
-      </ul>
+      </main>
     </>
   );
 }
