@@ -1,18 +1,11 @@
 // src/components/CategoryContainer.tsx
 import React from "react";
 import { HeadlineItem } from "./HeadlineItem";
-
-export type Headline = {
-  id: string;
-  headlineContent: string;
-  hyperlink: string;
-  createdAt: Date;
-  // Other fields as needed
-};
+import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
 
 type CategoryContainerProps = {
   categoryTag: string;
-  headlines: Headline[];
+  headlines: HeadlineType[]; // Use HeadlineType from the central types file
 };
 
 export function CategoryContainer({

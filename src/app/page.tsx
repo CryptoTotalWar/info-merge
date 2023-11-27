@@ -1,38 +1,22 @@
-// import Link from "next/link";
 // src/app/page.tsx
-import { GetServerSideProps } from "next";
-import { prisma } from "@/db";
 import { CategoryContainer } from "@/components/CategoryContainer";
-import { HeadlinesByCategoryType } from "@/types"; // Now importing from the types directory
+import { HeadlinesByCategoryType } from "@/types"; // Ensure this path is correct
 
 type PageProps = {
-  headlinesByCategory: HeadlinesByCategoryType;
+  data: HeadlinesByCategoryType;
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const headlines = await prisma.headline.findMany({
-    orderBy: {
-      categoryTag: "asc",
-      createdAt: "desc",
-    },
-  });
+export async function loader() {
+  const res = await fetch("/api/headlines"); // Relative URL for the API endpoint
+  if (!res.ok) {
+    throw new Error("Failed to fetch headlines");
+  }
+  return res.json();
+}
 
-  // Group headlines by category
-  const headlinesByCategory = headlines.reduce(
-    (acc: HeadlinesByCategoryType, headline) => {
-      acc[headline.categoryTag] = acc[headline.categoryTag] || [];
-      acc[headline.categoryTag].push(headline);
-      return acc;
-    },
-    {}
-  );
+export default function Page({ data }: PageProps) {
+  const headlinesByCategory: HeadlinesByCategoryType = data;
 
-  return {
-    props: { headlinesByCategory },
-  };
-};
-
-export default function Page({ headlinesByCategory }: PageProps) {
   return (
     <>
       <header className="flex justify-between items-center mb-4">

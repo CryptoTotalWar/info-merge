@@ -1,14 +1,9 @@
 // src/components/HeadlineItem.tsx
 import React from "react";
+import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
 
 type HeadlineItemProps = {
-  headline: {
-    id: string;
-    headlineContent: string;
-    hyperlink: string;
-    createdAt: Date;
-    // Other fields as needed
-  };
+  headline: HeadlineType;
 };
 
 export function HeadlineItem({ headline }: HeadlineItemProps) {
