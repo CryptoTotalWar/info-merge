@@ -6,6 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Info Merge",
+  description:
+    "Your Ultimate Millennial News Hub with human curated media feeds. You can say bye to Drudge Report for good now! ",
 };
 
 export default function RootLayout({
