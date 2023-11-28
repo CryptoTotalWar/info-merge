@@ -1,18 +1,18 @@
-"use client"
-import * as React from "react";
+"use client";
+import React from "react";
 import Link from 'next/link';
 
 const NavigationMenu = () => {
   return (
     <nav className="flex space-x-4">
-      <Link href="/admin">
-        <a className="text-sm font-medium hover:underline">Admin Home</a>
+      <Link href="/admin" className="text-sm font-medium hover:underline">
+        Admin Home
       </Link>
-      <Link href="/admin/create-headline">
-        <a className="text-sm font-medium hover:underline">Create Headline</a>
+      <Link href="/admin/create-headline" className="text-sm font-medium hover:underline">
+        Create Headline
       </Link>
-      <Link href="/admin/edit-headline">
-        <a className="text-sm font-medium hover:underline">Edit Headline</a>
+      <Link href="/admin/edit-headline" className="text-sm font-medium hover:underline">
+        Edit Headline
       </Link>
     </nav>
   );
