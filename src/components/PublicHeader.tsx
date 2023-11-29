@@ -7,7 +7,7 @@ const PublicHeader = () => {
   return (
     <header className="bg-gray-800 text-white py-4 px-6">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">InfoMerge</h1>
+        <h1 className="text-3xl font-bold italic text-shadow-lg">InfoMerge</h1>
         <PublicNavigationMenu />
       </div>
     </header>

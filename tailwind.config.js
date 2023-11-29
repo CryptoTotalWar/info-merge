@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      textShadow: {
+        lg: "2px 2px 4px rgba(0, 0, 0, 0.25)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,5 +77,16 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities, theme }) {
+      const textShadowUtilities = {
+        ".text-shadow-lg": {
+          textShadow: theme("textShadow.lg"),
+        },
+        // Add more utilities if needed
+      };
+      addUtilities(textShadowUtilities);
+    },
+  ],
 };
