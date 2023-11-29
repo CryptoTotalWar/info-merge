@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import NavigationMenu from "../components/ui/navigation-menu";
+import NavigationMenu from "./navigation-menu";
 import { useRouter, usePathname } from "next/navigation";
 const AdminHeader = () => {
   const [headerName, setHeaderName] = useState("Admin Home");
