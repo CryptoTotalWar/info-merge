@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react"; // src/app/page.tsx
+import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types"; // Ensure this path is correct
 
@@ -28,9 +29,7 @@ export default function Page() {
 
   return (
     <>
-      <header className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl">Headlines</h1>
-      </header>
+      <PublicHeader />
       <main>
         {Object.entries(data).map(([categoryTag, headlines]) => (
           <CategoryContainer
