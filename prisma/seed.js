@@ -1,4 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+// prisma/seed.js (Note the .js extension instead of .ts)
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
