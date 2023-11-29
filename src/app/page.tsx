@@ -24,7 +24,7 @@ export default function Page() {
 
   if (!data || Object.keys(data).length === 0) {
     // Handle the case when data is undefined or empty
-    return <div>No headlines available.</div>; // Display a message to the user
+    return <div>Loading Headlines...</div>; // Display a message to the user
   }
 
   return (
