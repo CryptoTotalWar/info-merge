@@ -14,6 +14,7 @@ async function loader(req: NextRequest) {
         {
           createdAt: "desc",
         },
+        { id: "asc" },
       ],
     });
 
