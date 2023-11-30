@@ -19,7 +19,9 @@ module.exports = {
     },
     extend: {
       textShadow: {
-        "3d": "0 0 10px rgba(75, 75, 75, 0.7)", // Adjust the shadow color and opacity as needed
+        "3d": "0 0 10px rgba(75, 75, 75, 0.7)",
+        lg: "2px 2px 3px rgba(156, 163, 175, 0.7)", // Existing shadow
+        x1: "4px 4px 6px rgba(0, 0, 0, 0.8)", // New larger shadow
       },
       colors: {
         border: "hsl(var(--border))",
@@ -83,6 +85,9 @@ module.exports = {
       const textShadowUtilities = {
         ".text-shadow-lg": {
           textShadow: "2px 2px 3px rgba(156, 163, 175, 0.7)", // Adjust the RGBA value for desired shadow color
+        },
+        ".text-shadow-xl": {
+          textShadow: theme("textShadow.xl"),
         },
       };
       addUtilities(textShadowUtilities);

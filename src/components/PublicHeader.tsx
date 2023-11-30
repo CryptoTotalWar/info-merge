@@ -2,13 +2,13 @@
 "use client";
 import React from "react";
 import PublicNavigationMenu from "./PublicNavigationMenu";
-import Logo from "./Logo"; // Update the import statement
+import Logo from "./Logo";
 
 const PublicHeader = () => {
   return (
-    <header className="bg-gray-800 text-white py-4 px-6">
+    <header className="text-white py-4 mb-20">
       <div className="container mx-auto flex justify-between items-center">
-        <Logo /> {/* Use the Logo component */}
+        <Logo />
         <PublicNavigationMenu />
       </div>
     </header>

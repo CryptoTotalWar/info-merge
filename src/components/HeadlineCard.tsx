@@ -1,17 +1,16 @@
+// src/components/HeadlineCard.tsx
 "use client";
-// src/components/HeadlineItem.tsx
-
 import React from "react";
-import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
+import { HeadlineType } from "@/types";
 import Link from "next/link";
 
-type HeadlineItemProps = {
+type HeadlineCardProps = {
   headline: HeadlineType;
 };
 
-export function HeadlineItem({ headline }: HeadlineItemProps) {
+const HeadlineCard: React.FC<HeadlineCardProps> = ({ headline }) => {
   return (
-    <li className="my-3 w-full">
+    <div className="p-2">
       <Link
         href={headline.hyperlink}
         target="_blank"
@@ -20,6 +19,8 @@ export function HeadlineItem({ headline }: HeadlineItemProps) {
       >
         {headline.headlineContent}
       </Link>
-    </li>
+    </div>
   );
-}
+};
+
+export default HeadlineCard;

@@ -2,12 +2,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const PublicNavigationMenu = () => {
   return (
-    <nav className="flex space-x-4">
-      <Link href="/admin" className="text-sm font-medium hover:underline">
-        Admin
+    <nav className="flex space-x-4 opacity-80">
+      <Link href="/admin" passHref>
+        <Button>Admin Login</Button>
       </Link>
     </nav>
   );

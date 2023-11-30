@@ -1,24 +1,23 @@
+// src/components/NavigationMenu.js
 "use client";
 import React from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const NavigationMenu = () => {
   return (
     <nav className="flex space-x-4">
-      <Link href="/admin" className="text-sm font-medium hover:underline">
-        Admin Home
+      {/* @ts-ignore */}
+      <Link href="/admin" passHref>
+        <Button>Admin Home</Button>
       </Link>
-      <Link
-        href="/admin/create-headline"
-        className="text-sm font-medium hover:underline"
-      >
-        Create Headline
+      {/* @ts-ignore */}
+      <Link href="/admin/create-headline" passHref>
+        <Button>Create Headline</Button>
       </Link>
-      <Link
-        href="/admin/edit-headline"
-        className="text-sm font-medium hover:underline"
-      >
-        Edit Headline
+      {/* @ts-ignore */}
+      <Link href="/admin/edit-headline" passHref>
+        <Button>Edit Headline</Button>
       </Link>
     </nav>
   );
