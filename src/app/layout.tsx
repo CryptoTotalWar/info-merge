@@ -19,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        {/* Other head tags */}
+      </head>{" "}
       <body
         className={cn(
           "bg-slate-800 text-slate-100 container mx-auto p-4 font-sans antialiased",
