@@ -1,13 +1,14 @@
 "use client";
 // src/components/CategoryContainer.tsx
 
+// src/components/CategoryContainer.tsx
 import React from "react";
-import { HeadlineItem } from "./HeadlineItem";
-import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
+import HeadlineCard from "./HeadlineCard";
+import { HeadlineType } from "@/types";
 
 type CategoryContainerProps = {
   categoryTag: string;
-  headlines: HeadlineType[]; // Use HeadlineType from the central types file
+  headlines: HeadlineType[];
 };
 
 export function CategoryContainer({
@@ -19,11 +20,11 @@ export function CategoryContainer({
       <h3 className="text-xl font-bold mb-4 uppercase text-center">
         {categoryTag}
       </h3>
-      <ul className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {headlines.map((headline) => (
-          <HeadlineItem key={headline.id} headline={headline} />
+          <HeadlineCard key={headline.id} headline={headline} />
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
