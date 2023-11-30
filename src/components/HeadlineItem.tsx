@@ -3,6 +3,7 @@
 
 import React from "react";
 import { HeadlineType } from "@/types"; // Ensure the path matches your project structure
+import Link from "next/link";
 
 type HeadlineItemProps = {
   headline: HeadlineType;
@@ -11,14 +12,14 @@ type HeadlineItemProps = {
 export function HeadlineItem({ headline }: HeadlineItemProps) {
   return (
     <li className="my-3 w-full">
-      <a
+      <Link
         href={headline.hyperlink}
         target="_blank"
         rel="noopener noreferrer"
         className="hover:underline"
       >
         {headline.headlineContent}
-      </a>
+      </Link>
     </li>
   );
 }
