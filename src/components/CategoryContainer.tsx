@@ -16,7 +16,7 @@ export function CategoryContainer({
 }: CategoryContainerProps) {
   return (
     <section className="flex flex-col mb-6 max-w-[30%] ">
-      <h3 className="text-xl font-bold mb-2">{categoryTag}</h3>
+      <h3 className="text-xl font-bold mb-2 uppercase">{categoryTag}</h3>
       <ul className="flex flex-wrap">
         {headlines.map((headline) => (
           <HeadlineItem key={headline.id} headline={headline} />
