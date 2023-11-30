@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css"; // Ensure this path is correct
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils"; // Adjust the import path as necessary
-import { Theme } from "@radix-ui/themes";
 
 const interFont = Inter({ subsets: ["latin"] });
 
