@@ -5,6 +5,7 @@ import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types";
 import { Progress } from "@/components/ui/progress"; // Import the Progress component
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 export default function Page() {
   const [data, setData] = useState({} as HeadlinesByCategoryType);
@@ -37,6 +38,9 @@ export default function Page() {
 
   return (
     <>
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
+        <ParticlesBackground />
+      </div>
       <PublicHeader />
       <main className="flex flex-wrap gap-8 justify-center mx-auto py-4 max-w-8xl">
         {Object.entries(data).map(([categoryTag, headlines]) => (
