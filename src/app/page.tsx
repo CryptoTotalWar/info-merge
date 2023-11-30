@@ -30,7 +30,7 @@ export default function Page() {
   return (
     <>
       <PublicHeader />
-      <main className="flex flex-wrap gap-x-6 gap-y-4 p-4 mx-auto justify-center">
+      <main className="flex flex-wrap gap-x-10 gap-y-4 p-4 mx-auto justify-center">
         {Object.entries(data).map(([categoryTag, headlines]) => (
           <CategoryContainer
             key={categoryTag}
