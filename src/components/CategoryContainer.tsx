@@ -15,7 +15,7 @@ export function CategoryContainer({
   headlines,
 }: CategoryContainerProps) {
   return (
-    <section className="mb-6">
+    <section className="flex flex-col mb-6 max-w-[40%] w-full md:max-w-full">
       <h3 className="text-xl font-bold mb-2">{categoryTag}</h3>
       <ul>
         {headlines.map((headline) => (
