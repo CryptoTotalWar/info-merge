@@ -10,7 +10,7 @@ type HeadlineItemProps = {
 
 export function HeadlineItem({ headline }: HeadlineItemProps) {
   return (
-    <li className="my-3">
+    <li className="my-3 w-full">
       <a
         href={headline.hyperlink}
         target="_blank"
