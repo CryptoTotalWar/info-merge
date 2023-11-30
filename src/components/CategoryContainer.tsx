@@ -15,7 +15,7 @@ export function CategoryContainer({
   headlines,
 }: CategoryContainerProps) {
   return (
-    <section className="flex flex-col mb-6 w-5/12 bg-slate-700 border border-slate-300 rounded-lg p-4 opacity-90 p">
+    <section className="flex flex-col mb-6 bg-slate-700 border border-slate-300 rounded-lg p-4 opacity-90">
       <h3 className="text-xl font-bold mb-4 uppercase text-center">
         {categoryTag}
       </h3>
