@@ -1,30 +1,38 @@
+// src/app/page.tsx
 "use client";
-import { useEffect, useState } from "react"; // src/app/page.tsx
+import { useEffect, useState } from "react";
 import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
-import { HeadlinesByCategoryType } from "@/types"; // Ensure this path is correct
-
-type PageProps = {
-  data: HeadlinesByCategoryType;
-};
+import { HeadlinesByCategoryType } from "@/types";
+import { Progress } from "@/components/ui/progress"; // Import the Progress component
 
 export default function Page() {
   const [data, setData] = useState({} as HeadlinesByCategoryType);
+  const [progress, setProgress] = useState(0); // State to manage progress
 
   useEffect(() => {
     async function fetchData() {
+      setProgress(30); // Initial progress
       const response = await fetch("/api/headlines");
       const data = await response.json();
       setData(data);
+      setProgress(100); // Set progress to 100% after fetching data
     }
     fetchData();
   }, []);
 
-  console.log("Received data:", data);
-
   if (!data || Object.keys(data).length === 0) {
-    // Handle the case when data is undefined or empty
-    return <div>Loading Headlines...</div>; // Display a message to the user
+    // Display a progress bar while loading
+    return (
+      <>
+        <PublicHeader />
+        <div className="flex justify-center items-start h-screen pt-20">
+          {" "}
+          {/* Adjusted to position higher */}
+          <Progress value={progress} className="w-[60%]" />
+        </div>
+      </>
+    );
   }
 
   return (
