@@ -1,5 +1,6 @@
 // src/app/page.tsx
 "use client";
+import { Theme } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
