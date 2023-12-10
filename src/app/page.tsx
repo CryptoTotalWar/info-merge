@@ -43,7 +43,7 @@ export default function Page() {
         <ParticlesBackground />
       </div>
       <PublicHeader />
-      <main className="grid grid-cols-3 gap-4 mx-auto py-4 max-w-8xl">
+      <main className="columns-3 gap-4 mx-auto py-4 max-w-8xl">
         {Object.entries(data).map(([categoryTag, headlines]) => (
           <CategoryContainer
             key={categoryTag}
