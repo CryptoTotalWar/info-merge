@@ -5,6 +5,7 @@ import { HeadlineType } from "@/types";
 import Link from "next/link";
 import DateDisplay from "./DateDisplay";
 import ClipboardIcon from "./ClipboardIcon";
+import EmbeddedMedia from "./EmbeddedMedia"; // Import the EmbeddedMedia component
 
 type HeadlineCardProps = {
   headline: HeadlineType;
@@ -19,6 +20,7 @@ const HeadlineCard: React.FC<HeadlineCardProps> = ({ headline }) => {
   return (
     <div className="p-2">
       <DateDisplay createdAt={headline.createdAt.toString()} />
+      <EmbeddedMedia url={headline.hyperlink} /> {/* Add EmbeddedMedia here */}
       <Link
         href={headline.hyperlink}
         target="_blank"
