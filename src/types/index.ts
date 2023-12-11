@@ -6,6 +6,7 @@ export type HeadlineType = {
   hyperlink: string;
   categoryTag: string;
   createdAt: Date;
+  useMicroLink: boolean;
   // Other fields as needed
 };
 
