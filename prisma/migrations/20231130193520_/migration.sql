@@ -7,7 +7,7 @@ CREATE TABLE `Headline` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
     `isBreakingNews` BOOLEAN NOT NULL DEFAULT false,
-    `expiration` DATETIME(3),
+    `expiration` DATETIME(3) NULL,
 
     INDEX `Headline_categoryTag_createdAt_idx`(`categoryTag`, `createdAt`),
     PRIMARY KEY (`id`)

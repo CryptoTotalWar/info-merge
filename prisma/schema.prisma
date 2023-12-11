@@ -18,7 +18,7 @@ model Headline {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   isBreakingNews  Boolean  @default(false)
-  expiration      DateTime? // Made optional
+  useMicroLink  Boolean  @default(true)
 
   @@index([categoryTag, createdAt]) // Composite index for efficient querying within categories
 }

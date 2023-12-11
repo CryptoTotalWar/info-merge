@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 const PublicNavigationMenu = () => {
   return (
     <nav className="flex space-x-4 opacity-80">
-      <Link href="/admin" passHref>
-        <Button>Admin Login</Button>
+      <Link href="http://localhost:5555" passHref>
+        <Button>Add New Headlines</Button>
       </Link>
     </nav>
   );
