@@ -27,7 +27,6 @@ export default function Page() {
     // Display a progress bar while loading
     return (
       <>
-        <PublicHeader />
         <div className="flex justify-center items-start h-screen pt-20">
           {" "}
           {/* Adjusted to position higher */}
