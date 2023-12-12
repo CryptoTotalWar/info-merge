@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types";
-import { Progress } from "@/components/ui/progress"; // Import the Progress component
+import { Progress } from "@/components/progress"; // Import the Progress component
 import ParticlesBackground from "@/components/ParticlesBackground";
 
 export default function Page() {
@@ -27,7 +27,6 @@ export default function Page() {
     // Display a progress bar while loading
     return (
       <>
-        <PublicHeader />
         <div className="flex justify-center items-start h-screen pt-20">
           {" "}
           {/* Adjusted to position higher */}

@@ -18,19 +18,25 @@ const HeadlineCard: React.FC<HeadlineCardProps> = ({ headline }) => {
   };
 
   return (
-    <div className="p-2">
-      <DateDisplay createdAt={headline.createdAt.toString()} />
-      <EmbeddedMedia url={headline.hyperlink} /> {/* Add EmbeddedMedia here */}
+    <div className="p-2 shadow-2xl rounded-md opacity-100 bg-slate-700">
+      <div className="flex items-center justify-between">
+        <DateDisplay createdAt={headline.createdAt.toString()} />
+        <ClipboardIcon hyperlink={headline.hyperlink} />
+      </div>
       <Link
         href={headline.hyperlink}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline mt-2 block text-lg font-bold"
+        className="hover:underline mt-2 block text-2xl font-bold underline"
       >
         {headline.headlineContent}
       </Link>
-      <ClipboardIcon hyperlink={headline.hyperlink} />{" "}
-      {/* Clipboard icon below the hyperlink */}
+      {headline.useMicroLink && ( // Conditionally render EmbeddedMedia based on useMicroLink
+        <EmbeddedMedia
+          url={headline.hyperlink}
+          useMicroLink={headline.useMicroLink}
+        />
+      )}
     </div>
   );
 };
