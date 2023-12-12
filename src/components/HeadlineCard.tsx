@@ -32,10 +32,7 @@ const HeadlineCard: React.FC<HeadlineCardProps> = ({ headline }) => {
         {headline.headlineContent}
       </Link>
       {headline.useMicroLink && ( // Conditionally render EmbeddedMedia based on useMicroLink
-        <EmbeddedMedia
-          url={headline.hyperlink}
-          useMicroLink={headline.useMicroLink}
-        />
+        <EmbeddedMedia key={headline.hyperlink} url={headline.hyperlink} />
       )}
     </div>
   );
