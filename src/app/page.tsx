@@ -60,13 +60,15 @@ export default function Page() {
         onFilterChange={handleFilterChange}
       />
       <main className="columns-3 gap-4 mx-auto py-4 max-w-8xl">
-        {Object.entries(data).map(([categoryTag, headlines]) => (
-          <CategoryContainer
-            key={categoryTag}
-            categoryTag={categoryTag}
-            headlines={headlines}
-          />
-        ))}
+        {Object.entries(data)
+          .filter(([categoryTag]) => activeCategories.includes(categoryTag))
+          .map(([categoryTag, headlines]) => (
+            <CategoryContainer
+              key={categoryTag}
+              categoryTag={categoryTag}
+              headlines={headlines}
+            />
+          ))}
       </main>
     </>
   );
