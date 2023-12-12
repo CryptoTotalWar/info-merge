@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 const PublicHeader = () => {
   return (
-    <header className="text-white py-4 mb-20">
+    <header className="text-white py-4 mb-5">
       <div className="container mx-auto flex justify-between items-center">
         <Logo />
         <PublicNavigationMenu />
