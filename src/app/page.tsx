@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import PublicHeader from "@/components/PublicHeader";
 import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types";
-import { Progress } from "@/components/ui/progress"; // Import the Progress component
+import { Progress } from "@/components/progress"; // Import the Progress component
 import ParticlesBackground from "@/components/ParticlesBackground";
 
 export default function Page() {
