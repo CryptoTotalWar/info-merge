@@ -7,10 +7,12 @@ import { CategoryContainer } from "@/components/CategoryContainer";
 import { HeadlinesByCategoryType } from "@/types";
 import { Progress } from "@/components/progress"; // Import the Progress component
 import ParticlesBackground from "@/components/ParticlesBackground";
+import CategoryFilter from "@/components/CategoryFilter";
 
 export default function Page() {
   const [data, setData] = useState({} as HeadlinesByCategoryType);
   const [progress, setProgress] = useState(0); // State to manage progress
+  const [activeCategories, setActiveCategories] = useState<string[]>([]); // New state for active categories
 
   useEffect(() => {
     async function fetchData() {
