@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useUser } from "@clerk/nextjs";
-import { UserButton } from "@clerk/clerk-react";
+// import { UserButton } from "@clerk/clerk-react";
 import AdminHeader from "@/components/AdminHeader";
 import Logo from "@/components/Logo";
 
@@ -19,7 +19,7 @@ export default function AdminLayout({
         <Logo />
       </div>
       <AdminHeader />
-      <UserButton afterSignOutUrl="/" />
+      {/* <UserButton afterSignOutUrl="/" /> */}
       <main className="container mx-auto py-6 px-4">{children}</main>
     </>
   ) : (
