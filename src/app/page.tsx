@@ -8,6 +8,7 @@ import { HeadlinesByCategoryType } from "@/types";
 import { Progress } from "@/components/progress"; // Import the Progress component
 import ParticlesBackground from "@/components/ParticlesBackground";
 import CategoryFilter from "@/components/CategoryFilter";
+import Footer from "@/components/footer"; // Correct the casing of the file name
 
 export default function Page() {
   const [data, setData] = useState<HeadlinesByCategoryType>({}); // Use generic type for useState
@@ -70,6 +71,7 @@ export default function Page() {
             />
           ))}
       </main>
+      <Footer /> {/* Add the Footer component here */}
     </>
   );
 }
